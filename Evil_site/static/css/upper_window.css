@@ -1,0 +1,218 @@
+
+#upper_window{
+	display: block;/*none*/
+	position: absolute;
+	top: 5%;
+	left: min(29%, calc((100% - 40vh) / 2));/*29%*/
+	width: max(40%, 40vh);/*40%;*/
+	/*height: auto;*/
+	max-height: calc(95vh - 100px);
+	border: 2px solid black;
+	border-radius: 20px;
+	background-color: var(--second-bg-color);
+	z-index: 1000;
+	transform: scale(0);
+	transition: transform .4s;
+}
+
+#upper_window form{
+	overflow-y: overlay;
+	max-height: calc(95vh - 100px);
+}
+
+#data_to_edit{
+	display: inline-block;
+	width: 90%;
+	height: auto;
+	margin: 0 5%;
+	border-bottom: 2px solid black;
+}
+
+#upper_window_title{
+	padding: 20px 0;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.upper_window_btn{
+	width: auto;
+	height: auto;
+	margin: 4px;
+	padding: 0 6px;
+	border: 2px solid black;
+	border-radius: 20px;
+	float: right;
+	cursor: pointer;
+	transition: border-color .2s;
+	font-size: 20px;
+}
+.upper_window_btn:hover{
+	border-color: white;
+}
+.data_to_edit_line{
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	min-height: 40px;/*height: 40px;*/
+	height: auto;
+	margin-bottom: 10px;
+}
+#data_to_edit label{
+	float: left;
+	display: inline-block;
+	padding: 6px;
+	font-size: 20px;
+	line-height: 28px;
+	height: 28px;
+	vertical-align: bottom;
+}
+#data_to_edit input{
+	float: left;
+	width: 40%;
+	border: 2px solid var(--second-bg-color);
+	border-radius: 18px;
+	padding: 8px;
+	font-size: 20px;
+	line-height: 20px;
+	height: 20px;
+	vertical-align: bottom;
+	transition: border-color .4s;
+}
+#data_to_edit a{
+	width: min(100px, 30%);
+	display: inline-block;
+	position: relative;
+	float: left;
+}
+
+#data_to_edit input:hover{
+	border-color: black;
+}
+
+#data_to_edit textarea{
+	float: left;
+	width: 40%;
+	border: 2px solid var(--second-bg-color);
+	border-radius: 18px;
+	padding: 8px;
+	font-size: 20px;
+	line-height: 20px;
+	height: 100px;
+	vertical-align: bottom;
+	transition: border-color .4s;
+	resize: none;
+}
+#data_to_edit textarea:hover{
+	border-color: black;
+}
+
+#data_to_edit img{
+	max-height: 100px;
+    width: 120px;
+	border-radius: 10px;
+}
+.list_edit_hidden{
+	float: right;
+}
+#Accept{
+	background-color: hsl(140, 80%, 60%);
+}
+#Delete{
+	background-color: hsl(0, 80%, 60%);
+}
+#Cancel{
+	background-color: hsl(0, 80%, 70%);
+}
+#Edit{
+	background-color: hsl(40, 100%, 50%);
+}
+
+
+#data_to_edit select{
+	width: 40%;
+	border-radius: 18px;
+	padding: 2px;
+	font-size: 18px;
+	line-height: 18px;
+	height: 40px;
+	border: 2px solid var(--second-bg-color);
+	background-color: var(--input-bg-color);
+	transition: border-color .4s;
+	float: left;
+}
+
+#data_to_edit select:hover{
+	border-color: black;
+}
+
+.dropdown-check-list {
+	display: inline-block;
+	position: relative;
+	width: 40%;
+	border: 2px solid var(--second-bg-color);
+	border-radius: 18px;
+	padding: 8px;
+	font-size: 20px;
+	line-height: 20px;
+	height: 20px;
+	vertical-align: bottom;
+	transition: border-color .4s;
+	background-color: field;
+}
+.dropdown-check-list:hover {
+	border-color: black;
+}
+
+.dropdown-check-list ul{
+	display: none;/*block*/
+	position: absolute;
+	background-color: field;
+	width: calc(100% - 16px);
+	min-height: calc(100% - 16px);
+	max-height: 100px;
+	padding: 8px;
+	border: 2px solid var(--second-bg-color);
+	border-radius: 18px 0 0 18px;
+	top: -2px;
+	left: -2px;
+	z-index: 1001;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	transition: border-color .4s;
+}
+.dropdown-check-list ul:hover {
+	border-color: black;
+}
+
+.dropdown-check-list ul::-webkit-scrollbar-track {
+	background: field;
+}
+
+.dropdown-check-list ul li{
+	width: calc(100% - 8px);
+	height: 20px;
+	list-style: none;
+	border-radius: 18px;
+	background-color: var(--second-bg-color);
+	margin-bottom: 4px;
+	border-color: white;
+	transition: border-color .4s;
+}
+.dropdown-check-list ul li[hidden]{
+	display: none;
+}
+
+.dropdown-check-list ul li:hover {
+	border-color: black;
+}
+
+.dropdown-check-list ul li p{
+	display: inline-block;
+	width: calc(100% - 40px);
+	overflow: hidden;
+}
+
+

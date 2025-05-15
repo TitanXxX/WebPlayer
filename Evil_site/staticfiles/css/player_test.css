@@ -1,0 +1,281 @@
+.Player_box{
+	display: flex;
+	margin: 0 auto 20px auto;
+	align-items: center;
+	width: 980px;
+	height: 50px;
+	font-size: 1.4em;
+	border: 2px solid var(--main-color);
+	border-radius: 10px;
+	background: var(--second-bg-color);
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.Player_box .icon{
+	display: inline-block;
+	position: relative;
+	line-height: 40px;
+	font-size: 1.1em;
+	margin: 0 6px;
+	height: 40px;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 6px;
+	transition: .4s;
+}
+.Player_box .icon:hover{
+	background-color: color-mix(in srgb, var(--hover-bg-color) var(--opacity), transparent);
+}
+.Player_box .trackText{
+	display: flex;
+	position: relative;
+	width: 300px;
+	height: 38px;
+	top: 0;
+	float: left;
+	vertical-align: top;
+	flex-flow: column wrap;
+}
+.Player_box .trackname{
+	display: block;
+	position: relative;
+	line-height: 18px;
+	text-align: left;
+	font-size: 0.6em;
+	font-weight: 500;
+	width: 100%;
+	float: left;
+}
+.Player_box .trackauthor{
+	display: block;
+	position: relative;
+	line-height: 18px;
+	text-align: left;
+	font-size: 0.5em;
+	font-weight: 500;
+	float: left;
+}
+.Player_box .tracktime{
+	display: inline-block;
+	position: relative;
+	line-height: 20px;
+	font-size: 0.6em;
+	margin: 10px 4px 0 0;
+	bottom: 0;
+	float: right;
+	vertical-align: top;
+}
+.Player_box .slider_container{
+	display: inline-block;
+	position: relative;
+	width: 600px;
+	height: 8px;
+	float: left;
+	/*bottom: -6px;*/
+}
+
+.slider {
+	-webkit-appearance: none;
+	appearance: none; 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: 4px;
+	outline: none;
+	border-radius: 2px;
+	vertical-align: top;
+	background-color: var(--main-bg-color);
+	cursor: pointer;
+	overflow: hidden;
+}
+.slider::-webkit-slider-runnable-track {
+	height: 4px;
+	background: var(--main-bg-color);
+	border-radius: 4px;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 0px;
+	height: 0px;
+	border-radius: 2px;
+	background-color: var(--main-color);
+	cursor: pointer;
+	box-shadow: -100px 0 0 100px var(--main-color);
+}
+
+.music_slider {
+	-webkit-appearance: none;
+	appearance: none;
+	display: inline-block;
+	position: relative;
+	width: 600px;
+	height: 4px;
+	outline: none;
+	border-radius: 2px;
+	vertical-align: top;
+	background-color: var(--main-bg-color);
+	cursor: pointer;
+	overflow: hidden;
+}
+.music_slider::-webkit-slider-runnable-track {
+	height: 4px;
+	background: var(--main-bg-color);
+	border-radius: 4px;
+}
+
+.music_slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 0px;
+	height: 0px;
+	border-radius: 2px;
+	background-color: var(--main-color);
+	cursor: pointer;
+	box-shadow: -600px 0 0 600px var(--main-color);
+}
+
+
+.MusicList_box{
+	display: block;
+	position: relative;
+	margin: 0 auto 20px auto;
+	width: 980px;
+	min-height: 70px;
+	height: auto;
+	font-size: 1.8em;
+	border: 2px solid var(--main-color);
+	border-radius: 10px;
+	background: var(--second-bg-color);
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.Track_box{
+	display: block;
+	margin: 10px auto;
+	width: 900px;
+	height: 48px;
+	font-size: 1.8em;
+	border: 2px solid var(--outline-color);
+	border-radius: 10px;
+	background: var(--second-bg-color); 
+	transition: border 0.3s;
+	cursor: pointer;
+}
+.Track_box:hover{
+	border: 2px solid var(--main-color);
+}
+
+.Track_box .trackname{
+	display: inline-block;
+	position: relative;
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+	margin: 4px 8px;
+	top: 0;
+	width: calc(900px - 54px - 16px);
+	float: right;
+	vertical-align: top;
+}
+
+.Track_box .icon{
+	position: relative;
+	display: inline-block;
+	/*background-color: var(--main-bg-color);*/
+	width: 38px;
+	height: 38px;
+	margin: 5px 8px;
+	border-radius: 8px;
+	top: 0;
+	float: left;
+	vertical-align: top;
+}
+
+.Active_Track_box{
+	border: 2px solid var(--main-color);
+}
+
+.SearchPlace{
+	display: inline-block;
+	position: static;
+	background: var(--input-bg-color);
+	color: var(--main-color);
+	width: 600px;
+	height: 50px;
+	padding: 5px;
+	float: left;
+	font-size: 30px;
+	line-height: 30px;
+	border: 2px solid var(--main-color);
+	border-radius: 8px;
+}
+
+.SearchPlace::-webkit-search-cancel-button{
+	-webkit-appearance: none;
+	display: none;
+	/*position: relative;
+	right: 5px;
+	height: 30px;
+	width: 30px;
+	cursor: pointer;*/
+}
+
+.for_switch{
+	display: inline-block;
+	position: relative;
+	height: 84px;
+	font-size: 20px;
+	margin: 5px auto;
+	background: var(--second-bg-color);
+	border: 2px solid var(--main-color);
+	border-radius: 8px;
+}
+
+.for_repeat{
+	display: inline;
+	position: relative;
+	font-weight: 900;
+	font-size: 8px;
+	line-height: 8px;
+	right: 18px;
+	bottom: 19px;
+	vertical-align: bottom;
+}
+.animated-box {
+	display: none;/*inline-block*/
+	position: absolute;
+	width: 50px;/*600px all*/
+	height: 4px;
+	top: 0;
+	left: 0;
+	background-color: var(--main-color);
+	border-radius: 4px;
+	--line-width: 50px;
+	--slider-width: 600px;
+	--end-position: calc(var(--slider-width) - var(--start-position));
+}
+.animated-box {
+	animation: gradient-animation 2s infinite linear;
+}
+@keyframes gradient-animation {
+	0% {
+		left: 0;
+	}
+	50% {
+		left: 550px;
+	}
+	100% {
+		left: 0px;
+	}
+}
+
+.for_search_and_download{
+	display: block;
+	position: relative;
+	width: 800px;
+	height: 50px;
+	margin: 10px auto;
+}
+

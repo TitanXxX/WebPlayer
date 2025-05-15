@@ -1,0 +1,26 @@
+{% load static %}
+{% include "upper.html" %}
+
+<link rel="stylesheet" href="{% static 'css/input-form.css' %}">
+
+<form class="action_form" method="post" accept-charset="UTF-8">{% csrf_token %}
+	<label for="username">Логин
+		<input type="text" class="input-box" name="username" id="username" minlength="2" autocomplete="username" maxlength="64" value="" required>
+	</label>
+	<label for="password">Пароль
+		<input type="password" class="input-box" name="password" id="password" autocomplete="new-password" minlength="2" maxlength="255" value="" required>
+	</label>
+	<input type="submit" value="Войти" class="action-btn">
+	<a class="dop_a" href="{% url 'accounts:register' %}">Регистрация</a>
+</form>
+
+<script type="text/javascript">
+	var logout_el;
+	if(window.location.pathname != "/login"){
+		logout_el = document.getElementById("logout");
+		logout_el.style.display = "none";
+	}
+</script>
+{% include "lower.html" %}
+
+

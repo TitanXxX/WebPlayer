@@ -1,0 +1,26 @@
+{% load static %}
+{% include "upper.html" %}
+
+<link rel="stylesheet" href="{% static 'css/input-form.css' %}">
+
+
+<form class="action_form" method="post" enctype="multipart/form-data" accept-charset="UTF-8">{% csrf_token %}
+	<label>Название
+		<input class="input-box" type="text" name="title" autocomplete="none" minlength="1" maxlength="64" value="" required>
+	</label>
+
+	<label>Автор
+		<input class="input-box" type="text" name="author" autocomplete="none" minlength="1" maxlength="64" value="" required>
+	</label>
+
+	<label>Файл
+		<input class="input-box" type="file" accept="audio/*" name="file" required>
+		<!--.mp3,.flac-->
+	</label>
+	<br>
+
+	<input type="submit" value="Добавить" class="action-btn">
+</form>
+
+
+{% include "lower.html" %}

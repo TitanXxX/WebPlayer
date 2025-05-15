@@ -1,0 +1,48 @@
+{% load static %}
+{% include "upper.html" %}
+
+<link rel="stylesheet" href="{% static 'css/input-form.css' %}">
+<script>
+	function del_track(){
+		return $.ajax({
+			type: "DELETE",
+			beforeSend: function(request) {
+				request.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+			},
+			mode: "same-origin",
+			data: {},
+			dataType: "json",
+			success: function(response) {
+					create_message(1, "Successfully deleted music");
+					window.location = PLAYER_URL;
+				},
+			error: function(response) {create_message(-1, "Error on delete music", response);}
+		});
+	}
+</script>
+
+<form class="action_form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">{% csrf_token %}
+	<label>Фото
+		{% if photo %}
+			<img class="input-box" src="data:image/png;base64,{{ photo }}">
+		{% else %}
+			No photo
+		{% endif %}
+		<input class="input-box" type="file" name="photo" accept="image/*">
+	</label>
+
+	<label>Название
+		<input class="input-box" type="text" name="title" autocomplete="none" minlength="1" maxlength="64" value="{{ title }}" required>
+	</label>
+
+	<label>Автор
+		<input class="input-box" type="text" name="author" autocomplete="none" minlength="1" maxlength="64"  value="{{ author }}" required>
+	</label>
+	<br>
+
+	<input type="button" value="Удалить" class="action-btn" style="background-color: RGB(210, 80, 70);" onclick="del_track()">
+	<input type="submit" value="Изменить" class="action-btn">
+</form>
+
+
+{% include "lower.html" %}

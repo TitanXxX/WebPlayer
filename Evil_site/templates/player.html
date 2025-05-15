@@ -1,0 +1,97 @@
+{% load static %}
+{% include "upper.html" %}
+<link rel="stylesheet" href="{% static 'css/player.css' %}">
+<div class="player">
+	<!--div class="trackrange"></div-->
+	<svg class="trackrange" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 100 100">
+		<circle id="full_arc" cx="50" cy="50" stroke-width="3" stroke="none" fill="none" r="48"/>
+		<path id="arc" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round"/>
+		<circle id="arc_pos" stroke-width="0.2" stroke="#ffffff" r="1"/>
+	</svg>
+	<svg class="skipleft-icon" onclick="skip(0)" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M90 54C92.2091 54 94 52.2091 94 50C94 47.7909 92.2091 46 90 46V54ZM7.17157 47.1716C5.60947 48.7337 5.60947 51.2663 7.17157 52.8284L32.6274 78.2843C34.1895 79.8464 36.7222 79.8464 38.2843 78.2843C39.8464 76.7222 39.8464 74.1895 38.2843 72.6274L15.6569 50L38.2843 27.3726C39.8464 25.8105 39.8464 23.2778 38.2843 21.7157C36.7222 20.1536 34.1895 20.1536 32.6274 21.7157L7.17157 47.1716ZM90 46L10 46V54L90 54V46Z" fill="currentColor"/>
+		<rect x="1" y="1" width="98" height="98" rx="49" stroke="currentColor" stroke-width="2"/>
+	</svg>
+	
+	<div class="image1">
+		<img id="main_img">
+		<!--svg xmlns="http://www.w3.org/2000/svg" class="icomp" style="color: var(--second-color); z-index: 0;" viewBox="-256 -256 1024 1024">
+			<path d="M240 343.31V424a32.28 32.28 0 01-21.88 30.65l-21.47 7.23c-25.9 8.71-52.65-10.75-52.65-38.32h0A34.29 34.29 0 01167.25 391l50.87-17.12A32.29 32.29 0 00240 343.24V92a16.13 16.13 0 0112.06-15.66L360.49 48.2A6 6 0 01368 54v57.76a16.13 16.13 0 01-12.12 15.67l-91.64 23.13A32.25 32.25 0 00240 181.91v39.39" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+		</svg-->
+		<svg id="play" style="display: block; z-index: 1; position: absolute; top: 0;" xmlns="http://www.w3.org/2000/svg" class="icomp" viewBox="0 0 512 512">
+			<path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/>
+		</svg>
+		<svg id="pause" style="display: none; z-index: 1; position: absolute; top: 0;" xmlns="http://www.w3.org/2000/svg" class="icomp" viewBox="0 0 512 512">
+			<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M176 96h16v320h-16zM320 96h16v320h-16z"/>
+		</svg>
+	</div>
+	
+	<svg class="skipright-icon" onclick="skip(1)" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M92.8284 52.8284C94.3905 51.2663 94.3905 48.7337 92.8284 47.1716L67.3726 21.7157C65.8105 20.1536 63.2778 20.1536 61.7157 21.7157C60.1536 23.2778 60.1536 25.8105 61.7157 27.3726L84.3431 50L61.7157 72.6274C60.1536 74.1895 60.1536 76.7222 61.7157 78.2843C63.2778 79.8464 65.8105 79.8464 67.3726 78.2843L92.8284 52.8284ZM10 46C7.79086 46 6 47.7909 6 50C6 52.2091 7.79086 54 10 54V46ZM90 46L10 46V54L90 54V46Z" fill="currentColor"/>
+		<rect x="1" y="1" width="98" height="98" rx="49" stroke="currentColor" stroke-width="2"/>
+	</svg>
+	<div class="text">
+		<div class="title1" id="trackname">Title</div>
+		<b class="author1" id="trackauthor">Author</b>
+		<div class="time1" id="tracktime">0:00/0:00</div>
+	</div>
+	
+
+	<div class="actions1">
+		<svg class="add-icon" id="add_to_music" onclick="addtomusic(this)" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<line x1="23" y1="36" x2="23" y2="10" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+			<line x1="10" y1="23" x2="36" y2="23" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+			<rect x="1" y="1" width="44" height="44" rx="21" stroke="currentColor" stroke-width="2"/>
+		</svg>
+		<svg class="add-icon" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M24.5 11C24.5 10.1716 23.8284 9.5 23 9.5C22.1716 9.5 21.5 10.1716 21.5 11H24.5ZM21.9393 36.0607C22.5251 36.6464 23.4749 36.6464 24.0607 36.0607L33.6066 26.5147C34.1924 25.9289 34.1924 24.9792 33.6066 24.3934C33.0208 23.8076 32.0711 23.8076 31.4853 24.3934L23 32.8787L14.5147 24.3934C13.9289 23.8076 12.9792 23.8076 12.3934 24.3934C11.8076 24.9792 11.8076 25.9289 12.3934 26.5147L21.9393 36.0607ZM21.5 11V35H24.5V11H21.5Z" fill="currentColor"/>
+			<rect x="1" y="1" width="44" height="44" rx="21" stroke="currentColor" stroke-width="2"/>
+		</svg>
+	</div>
+	
+	<div class="settings">
+		<svg class="add-icon" id="repeat_flag" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M11.5428 22.9218C12.1928 21.1358 13.3916 19.6015 14.9673 18.5387C16.5429 17.4759 18.4146 16.9392 20.3141 17.0055" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M20 17H31" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M28 14L31 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M28 20L31 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M33.4572 23.0782C32.8072 24.8642 31.6084 26.3985 30.0327 27.4613C28.4571 28.5241 26.5854 29.0608 24.6859 28.9945" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M25 29H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M17 32L14 29" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M17 26L14 29" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<rect x="1" y="1" width="44" height="44" rx="21" stroke="currentColor" stroke-width="2"/>
+			<circle cx="23" cy="23" id="for_repeat" stroke="currentColor" style="color: transparent;" r="19" stroke-width="2"/>
+		</svg>
+		<svg class="add-icon" id="shuffle_flag" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M10.2843 29.2961C10.9138 26.3355 12.5567 23.6874 14.9296 21.8084C17.3026 19.9293 20.2568 18.9372 23.2829 19.0031" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M23 19L32 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M29 16L32 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M29 22L32 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M10.2843 16.7039C10.9138 19.6645 12.5567 22.3126 14.9296 24.1916C17.3026 26.0707 20.2568 27.0628 23.2829 26.9969" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M23 27L32 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M29 30L32 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<path d="M29 24L32 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<rect x="1" y="1" width="44" height="44" rx="21" stroke="currentColor" stroke-width="2"/>
+		</svg>
+	</div>
+	<input type="range" min="0" max="100" value="0" id="slider_range" class="volume_range">
+	<ion-icon class="volume_icon" name="volume-high-outline"></ion-icon>
+</div>
+
+<label class="checkbox-green">
+	<input type="radio" id="MyMusic" name="MyMusic" onclick="load_tracklist()" value="true" checked />
+	<label for="MyMusic">Моя музыка</label>
+		<input type="radio" id="AllMusic" name="MyMusic" onclick="load_tracklist()" value="false" />
+	<label for="AllMusic">Вся музыка</label>
+</label>
+
+<input class="search_input" type="text" name="search" id="search" oninput="search()" placeholder="Поиск">
+
+<div class="playlist"  id="MusicList_box">
+</div>
+	
+<script src="{% static 'scripts/player.js' %}"></script>
+
+{% include "lower.html" %}
+
+

@@ -1,0 +1,45 @@
+{% load static %}
+{% include "upper.html" %}
+
+<link rel="stylesheet" href="{% static 'css/input-form.css' %}">
+
+
+<form class="action_form" method="post" accept-charset="UTF-8">{% csrf_token %}
+	<label>Имя
+		<input class="input-box" type="text" name="name" autocomplete="name" minlength="2" maxlength="64" value="" required>
+	</label>
+
+	<label>Фамилия
+		<input class="input-box" type="text" name="lastname" autocomplete="family-name" minlength="2" maxlength="64" value="" required>
+	</label>
+
+	<label>Логин
+		<input class="input-box" type="text" name="username" minlength="2" autocomplete="username" maxlength="64" value="" required>
+	</label>
+
+	<label>Email
+		<input class="input-box" type="text" name="email" autocomplete="email" minlength="2" maxlength="127" value="" required>
+	</label>
+
+	<label>Пароль
+		<input class="input-box" type="password" name="password" autocomplete="new-password" minlength="12" maxlength="255" value="" required>
+	</label>
+
+	<label>Дата рождения
+		<input class="input-box" type="date" name="birth_date" autocomplete="bday" required>
+	</label>
+	
+	<label>Пол:
+		<label><input type="radio" id="Male" name="gender" value="M" checked>
+		Мужчина</label>
+		<label><input type="radio" id="Female" name="gender" value="F">
+		Женщина</label>
+	</label>
+	<br>
+
+	<input type="submit" value="Создать аккаунт" class="action-btn">
+	<a class="dop_a" href="{% url 'accounts:login' %}">Войти</a>
+</form>
+
+
+{% include "lower.html" %}
